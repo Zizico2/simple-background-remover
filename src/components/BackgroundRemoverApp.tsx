@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@cloudflare/kumo/components/button";
+import { Meter } from "@cloudflare/kumo/components/meter";
 import { cva } from "class-variance-authority";
 import Image from "next/image";
 import { useState } from "react";
@@ -22,15 +23,6 @@ const previewContainerStyles = cva([
   "relative rounded-lg overflow-hidden",
   "bg-[repeating-conic-gradient(#80808020_0%_25%,transparent_0%_50%)]",
   "bg-size-[20px_20px]",
-]);
-const progressBarContainerStyles = cva([
-  "w-full bg-(--surface-tint) rounded-full h-2 mb-2",
-]);
-const progressBarStyles = cva([
-  "bg-(--accent) h-2 rounded-full transition-[width] duration-300",
-]);
-const progressTextStyles = cva([
-  "text-[0.85rem] text-(--foreground-muted) text-center",
 ]);
 
 export default function BackgroundRemoverApp() {
@@ -71,6 +63,8 @@ export default function BackgroundRemoverApp() {
       const { removeBackground } = await import("@imgly/background-removal");
 
       const blob = await removeBackground(imageData.src, {
+        model: "isnet",
+        device: "gpu",
         progress: (key, current, total) => {
           setProgress({ key, current, total });
         },
@@ -150,15 +144,14 @@ export default function BackgroundRemoverApp() {
 
       {isProcessing && progress && (
         <div className="mb-4">
-          <div className={progressBarContainerStyles()}>
-            <div
-              className={progressBarStyles()}
-              style={{ width: `${progressPercent}%` }}
-            />
-          </div>
-          <p className={progressTextStyles()}>
-            {progress.key} — {progressPercent}%
-          </p>
+          <Meter
+            label={
+              progress.key.includes("fetch")
+                ? "Fetching model…"
+                : "Removing background…"
+            }
+            value={progressPercent}
+          />
         </div>
       )}
 
