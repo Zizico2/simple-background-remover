@@ -63,7 +63,7 @@ export default function BackgroundRemoverApp() {
       const { removeBackground } = await import("@imgly/background-removal");
 
       const blob = await removeBackground(imageData.src, {
-        model: "isnet",
+        model: "isnet_fp16",
         device: "gpu",
         progress: (key, current, total) => {
           setProgress({ key, current, total });
