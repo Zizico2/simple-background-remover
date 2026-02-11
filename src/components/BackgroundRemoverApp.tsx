@@ -25,6 +25,8 @@ const previewContainerStyles = cva([
   "bg-size-[20px_20px]",
 ]);
 
+const public_path = "https://simple-background-remover.berna-agua.workers.dev/assets/background-removal-data" ;
+
 export default function BackgroundRemoverApp() {
   const [imageData, setImageData] = useState<ImageData | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
