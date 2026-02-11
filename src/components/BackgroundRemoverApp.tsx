@@ -133,7 +133,7 @@ export default function BackgroundRemoverApp() {
 
           <Button
             onClick={handleReset}
-            disabled={!imageData}
+            disabled={!imageData || isProcessing}
             type="button"
             variant="secondary-destructive"
           >
