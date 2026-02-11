@@ -2,7 +2,7 @@
 
 A lightweight, client-side background removal tool built with modern web technologies. Upload an image via drag-and-drop or file picker, remove the background with one click, preview the result, and download — all processed in the browser with no server round-trips, powered by [`@imgly/background-removal`](https://github.com/imgly/background-removal-js).
 
-[https://simple-cropper.berna-agua.workers.dev/](https://simple-cropper.berna-agua.workers.dev)
+[https://simple-background-remover.berna-agua.workers.dev/](https://simple-background-remover.berna-agua.workers.dev)
 
 ## Features
 
