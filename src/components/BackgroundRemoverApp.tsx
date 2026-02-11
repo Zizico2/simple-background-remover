@@ -66,7 +66,6 @@ export default function BackgroundRemoverApp() {
     try {
       const blob = await removeBackground(imageData.src, {
         model: "isnet_fp16",
-        device: "gpu",
         publicPath: publicPath,
         progress: (key, current, total) => {
           setProgress({ key, current, total });
@@ -78,7 +77,8 @@ export default function BackgroundRemoverApp() {
       setResultUrl(url);
     } catch (err) {
       console.error("Error:", err);
-      alert("Failed to remove background");
+      const message = err instanceof Error ? err.message : String(err);
+      alert(`Failed to remove background: ${message}`);
     } finally {
       setIsProcessing(false);
       setProgress(null);
