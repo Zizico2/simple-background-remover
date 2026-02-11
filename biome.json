@@ -21,7 +21,8 @@
       "!.next",
       "!dist",
       "!build",
-      "!cloudflare-env.d.ts"
+      "!cloudflare-env.d.ts",
+      "!public"
     ]
   },
   "formatter": {
