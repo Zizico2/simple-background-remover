@@ -27,7 +27,7 @@ const previewContainerStyles = cva([
 ]);
 
 const publicPath =
-  "https://simple-background-remover.berna-agua.workers.dev/assets/background-removal-data/";
+  "https://simple-background-remover.bernardobordadagua.com/assets/background-removal-data/";
 
 export default function BackgroundRemoverApp() {
   const [imageData, setImageData] = useState<ImageData | null>(null);
