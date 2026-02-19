@@ -7,3 +7,7 @@ compatibility_flags = [ "nodejs_compat" ]
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+
+[[routes]]
+pattern = "simple-background-remover.bernardobordadagua.com"
+custom_domain = true
